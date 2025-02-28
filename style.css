@@ -379,7 +379,7 @@ header .menu a {
 
 .page2-spacer {
     width: 100%;
-    height: 20vh;
+    height: 50vh;
 }
 
 /* Page 3 */
@@ -445,7 +445,7 @@ header .menu a {
 
   .content {
     width: 100%;
-    height: auto;
+    height: 100vh;
   }
 
   /* GSAP ScrollTrigger Pinned Image Animation */
@@ -556,5 +556,61 @@ header .menu a {
     object-fit: cover;
   }
 
+  /* Footer */
+
+  .fixed-footer {
+    width: 100%;
+    height: 30vh;
+    background: #111;
+    color: var(--background-main-color);
+    position: relative;
+    padding: var(--clamp-padding);
+  }
+
+  .nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav .col {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding-left: 4rem;
+  }
+
+  .nav .col2 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav .col2 input {
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+
+    .nav .col2 button {
+        padding: 0.5rem;
+        border-radius: 1rem;
+        background: var(--button-background);
+        color: var(--button-text);
+        border: none;
+        cursor: pointer;
+    }
+
+  .menu-line:hover .nav-link.top-1.foo {
+    transform: translateY(20px);
+    color: var(--background-main-color);
+}
+
+.footer-end {
+    padding-left: 1.95rem;
+    font-size: 0.8rem;
+}
 
   
