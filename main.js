@@ -70,6 +70,12 @@ tl.from(".left svg", {
     duration: 0.6,
     ease: "power2.out",
 }, "-=0.4")
+.from(".right .right-button", {
+  y: 30,
+  opacity: 0,
+  duration: 0.6,
+  ease: "power2.out",
+}, "-=0.6")
 .from(".right p", {
     y: 30,
     opacity: 0,
@@ -246,6 +252,28 @@ ScrollTrigger.create({
   scrub: 1,
 })
   
+});
+
+// --- Scroll to Top Button ---
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// Muestra u oculta el botón basado en la posición del scroll
+window.addEventListener("scroll", () => {
+    // Muestra el botón si el scroll es mayor a, por ejemplo, 400px
+    if (window.scrollY > 400) {
+        scrollToTopBtn.classList.add("visible");
+    } else {
+        scrollToTopBtn.classList.remove("visible");
+    }
+});
+
+// Scroll suave hacia arriba al hacer clic
+scrollToTopBtn.addEventListener("click", (e) => {
+    e.preventDefault(); // Previene el comportamiento por defecto del enlace '#'
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Desplazamiento suave
+    });
 });
 
 

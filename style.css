@@ -59,6 +59,46 @@ html, body {
     background-color: var(--background-main-color);
 }
 
+#scrollToTopBtn {
+  position: fixed; /* Posición fija relativa a la ventana */
+  bottom: 30px;    /* Distancia desde abajo */
+  right: 30px;     /* Distancia desde la derecha */
+  width: 50px;     /* Ancho */
+  height: 50px;    /* Alto */
+  background-color: transparent; /* Fondo inicial transparente */
+  border-radius: 50%; /* Forma circular */
+  display: flex;      /* Centrar el icono SVG */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+  transition: background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Transiciones suaves */
+  opacity: 0;      /* Inicialmente oculto */
+  visibility: hidden; /* Inicialmente oculto */
+  border: 1px solid #333; /* Borde opcional para visibilidad inicial */
+}
+
+#scrollToTopBtn svg {
+  fill: #333; /* Color del icono SVG */
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease; /* Transición suave para el color del icono */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #333; /* Color de fondo circular en hover */
+}
+
+#scrollToTopBtn:hover svg {
+  fill: #fff; /* Color del icono en hover */
+}
+
+/* Clase para mostrar el botón */
+#scrollToTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 header {
     width: 100%;
     height: 50px;
@@ -249,6 +289,31 @@ color: var(--button-text);
 #page .bottom .right h2 {
     font-size: clamp(3rem, 2.25rem + 3.75vi, 5.625rem);
 }
+
+#page .bottom .right button {
+  background-color: var(--button-background);
+    padding-left: 2.75rem;
+    padding-right: 2.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--button-text);
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-size: var(--clamp-font-size);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+#page .bottom .right button:hover {
+  background-color: var(--text-light);
+}
+
+.right-button a {
+  color: var(--button-text);
+  }
 
 /* Page2 */
 #page2 {
