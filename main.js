@@ -64,7 +64,7 @@ tl.from(".left svg", {
     duration: 0.6,
     ease: "power2.out",
 }, "-=0.6")
-.from(".middle", {
+.from(".image", {
     y: 30,
     opacity: 0,
     duration: 0.6,
@@ -170,6 +170,28 @@ gsap.to(text3, {
   },
 });
 
+// Page 5
+
+const text5 = document.querySelectorAll("#page5 h2 span");
+
+text3.forEach((text) => {
+  gsap.set(text, { y: "100%", opacity: 0 }); // Set initial state for each span
+});
+
+// Animate the text spans when #page5 appears
+gsap.to(text5, {
+  y: 0,
+  opacity: 1,
+  stagger: 0.2,
+  duration: 1,
+  ease: "power4.out",
+  scrollTrigger: {
+    trigger: "#page5",
+    start: "top 100%",
+    toggleActions: "play none none none",
+  },
+});
+
 // Projects Animation
 
 let workPhotoItems = document.querySelectorAll(".work-photo-item");
@@ -196,7 +218,35 @@ ScrollTrigger.create({
   animation: animation,
   scrub: 1,
 })
+
+// Projects Animation
+
+let projectsPhotoItems = document.querySelectorAll(".project-photo-item");
+projectsPhotoItems.forEach((item, index) => {
+  item.style.zIndex = projectsPhotoItems.length - index;
+})
+
+gsap.set(".project-photo-item", {
+  clipPath: "inset(0px 0px 0px 0px)"
+});
+
+const animation2 = gsap.to(".project-photo-item:not(:last-child)", {
+  clipPath: function() {
+    return "inset(0px 0px 100% 0px)";
+  },
+  stagger: 0.5,
+  ease: "none"
+});
+
+ScrollTrigger.create({
+  trigger: ".project",
+  start: "top top",
+  end: "bottom bottom",
+  animation: animation2,
+  scrub: 1,
+})
   
 });
+
 
 
